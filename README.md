@@ -13,3 +13,4 @@ Season Mode is currently not being developed. It is a planned feature, yet is av
 
 ## Download/Installation
 Currently, this program can only be ran on Windows machines (I compile the program using pyinstaller, which doesn't allow for cross-compliation). This may change in the future once there is a fully-working program.
+Simply download and run the latest version of this program.
