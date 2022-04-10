@@ -1,14 +1,25 @@
 import sys
 import random
 import time
-import keyboard
 import winsound
-from os import system #system('cls')
+from msvcrt import getch
+from os import system
 from datetime import datetime
 from team_league_generation import league_generator
 from physics import hitting
 
 current_year = datetime.now().year
+
+def getkey():
+    firstkey = getch()
+    if(firstkey == b'\xe0'):
+        return {b'P': "down", b'H': "up", b'M': "right", b'K': "left"}[getch()]
+    elif(firstkey == b'\r'):
+        return "enter"
+    elif(firstkey == b'\x1b'):
+        return "escape"
+    else:
+        return firstkey
 
 def generate_game(home_team, away_team):
     #generates the field in ascii art
@@ -1138,8 +1149,8 @@ else:
     print("Season Mode")
 
 while True:
-    keyboard_input = keyboard.read_key()
-    if(keyboard_input == 'esc'):
+    keyboard_input = getkey()
+    if(keyboard_input == 'escape'):
         sys.exit()
     elif(keyboard_input == 'down'):
         if(selection_state == 0 and screen_df == 1):
