@@ -31,7 +31,7 @@ def birthday_generator(age, current_year):
     year = current_year - age                                                   #birth year
     return (month, day, year)                                                   #mm/dd/yyyy           
 
-def person_generator(current_year):                                                         #generates a player
+def person_generator(current_year):                                             #generates a player
     name = generate_name()                                                      #call generate name function which chooses a first and last name
     age = int(abs(random.normalvariate(28.20787, 3.564317)))                    #gets a random age from a normal distribution of ages in the MLB
     birthday = birthday_generator(age, current_year)
