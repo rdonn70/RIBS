@@ -4,9 +4,9 @@ from os import system
 from physics import hitting
 from fielding import fielding
 
-def generate_game(home_team, away_team, debug=0):
+def generate_game(home_team, away_team, debug=0, debug_time=2):
     #generates the field in ascii art
-    grid = [[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '_', '_', '_', '_', '_', '_', '_', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '/', '#', '#', '#', '#', '#', '#', '#', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', '/', '#', '#', '#', '#', '#', '#', '#', '#', '#', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', '/', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '\\', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', '/', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '\\', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', '/', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '\\', ' ', ' ', ' ', ' '], [' ', ' ', ' ', '/', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '\\', ' ', ' ', ' '], [' ', ' ', '/', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '\\', ' ', ' '], [' ', '/', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '▢', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '\\', ' '], ['|', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '/', '#', '\\', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '|'], ['|', '#', '#', '#', '#', '#', '#', '#', '#', '#', '/', '#', '#', '#', '\\', '#', '#', '#', '#', '#', '#', '#', '#', '#', '|'], ['|', '\\', '#', '#', '#', '#', '#', '#', '#', '/', '#', '#', '#', '#', '#', '\\', '#', '#', '#', '#', '#', '#', '#', '/', '|'], ['|', '#', '\\', '#', '#', '#', '#', '#', '/', '#', '#', '#', '#', '#', '#', '#', '\\', '#', '#', '#', '#', '#', '/', '#', '|'], ['|', '#', '#', '\\', '#', '#', '#', '/', '#', '#', '#', '#', '#', '#', '#', '#', '#', '\\', '#', '#', '#', '/', '#', '#', '|'], ['|', '#', '#', '#', '\\', '#', '/', '#', '#', '#', '#', '/', '-', '\\', '#', '#', '#', '#', '\\', '#', '/', '#', '#', '#', '|'], [' ', '\\', '#', '#', '#', '▢', '#', '#', '#', '#', '#', '|', '▢', '|', '#', '#', '#', '#', '#', '▢', '#', '#', '#', '/', ' '], [' ', ' ', '\\', '#', '#', '#', '\\', '#', '#', '#', '#', '\\', '-', '/', '#', '#', '#', '#', '/', '#', '#', '#', '/', ' ', ' '], [' ', ' ', ' ', '\\', '#', '#', '#', '\\', '#', '#', '#', '#', '#', '#', '#', '#', '#', '/', '#', '#', '#', '/', ' ', ' ', ' '], [' ', ' ', ' ', ' ', '\\', '#', '#', '#', '\\', '#', '#', '#', '#', '#', '#', '#', '/', '#', '#', '#', '/', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', '\\', '#', '#', '#', '\\', '#', '#', '#', '#', '#', '/', '#', '#', '#', '/', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', '\\', '#', '#', '#', '\\', '#', '#', '#', '/', '#', '#', '#', '/', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', '#', '#', '#', '\\', '#', '/', '#', '#', '#', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', '#', '#', '#', '▢', '#', '#', '#', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', '#', '#', '#', '#', '#', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', '#', '#', '#', '/', '', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|', '_', '_', '_', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']]
+    grid = [[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '_', '_', '_', '_', '_', '_', '_', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '/', '#', '#', '#', '#', '#', '#', '#', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', '/', '#', '#', '#', '#', '#', '#', '#', '#', '#', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', '/', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '\\', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', '/', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '\\', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', '/', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '\\', ' ', ' ', ' ', ' '], [' ', ' ', ' ', '/', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '\\', ' ', ' ', ' '], [' ', ' ', '/', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '\\', ' ', ' '], [' ', '/', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '◆', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '\\', ' '], ['|', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '/', '#', '\\', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '|'], ['|', '#', '#', '#', '#', '#', '#', '#', '#', '#', '/', '#', '#', '#', '\\', '#', '#', '#', '#', '#', '#', '#', '#', '#', '|'], ['|', '\\', '#', '#', '#', '#', '#', '#', '#', '/', '#', '#', '#', '#', '#', '\\', '#', '#', '#', '#', '#', '#', '#', '/', '|'], ['|', '#', '\\', '#', '#', '#', '#', '#', '/', '#', '#', '#', '#', '#', '#', '#', '\\', '#', '#', '#', '#', '#', '/', '#', '|'], ['|', '#', '#', '\\', '#', '#', '#', '/', '#', '#', '#', '#', '#', '#', '#', '#', '#', '\\', '#', '#', '#', '/', '#', '#', '|'], ['|', '#', '#', '#', '\\', '#', '/', '#', '#', '#', '#', '/', '-', '\\', '#', '#', '#', '#', '\\', '#', '/', '#', '#', '#', '|'], [' ', '\\', '#', '#', '#', '◆', '#', '#', '#', '#', '#', '|', '◆', '|', '#', '#', '#', '#', '#', '◆', '#', '#', '#', '/', ' '], [' ', ' ', '\\', '#', '#', '#', '\\', '#', '#', '#', '#', '\\', '-', '/', '#', '#', '#', '#', '/', '#', '#', '#', '/', ' ', ' '], [' ', ' ', ' ', '\\', '#', '#', '#', '\\', '#', '#', '#', '#', '#', '#', '#', '#', '#', '/', '#', '#', '#', '/', ' ', ' ', ' '], [' ', ' ', ' ', ' ', '\\', '#', '#', '#', '\\', '#', '#', '#', '#', '#', '#', '#', '/', '#', '#', '#', '/', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', '\\', '#', '#', '#', '\\', '#', '#', '#', '#', '#', '/', '#', '#', '#', '/', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', '\\', '#', '#', '#', '\\', '#', '#', '#', '/', '#', '#', '#', '/', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', '#', '#', '#', '\\', '#', '/', '#', '#', '#', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', '#', '#', '#', '◆', '#', '#', '#', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', '#', '#', '#', '#', '#', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', '#', '#', '#', '/', '', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|', '_', '_', '_', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']]
     #bunch of definitions for variables used later on, in the score comparison for the starting lineup and more
     home_pitches_thrown = away_pitches_thrown = cp_replace_home = cp_replace_away = 0
     current_SP_score = current_CP_score = current_C_score = current_1B_score = current_2B_score = current_3B_score = current_SS_score = current_LF_score = current_CF_score = current_RF_score = current_DH_score = 0
@@ -121,7 +121,7 @@ def generate_game(home_team, away_team, debug=0):
     away_team_current_batter = 0 #max 8 - index for the batter who is batting for the away team
 
     #lowkey dont know what this second grid definition does and im too scared to remove it
-    grid = [[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '_', '_', '_', '_', '_', '_', '_', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' '], [' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' '], [' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' '], [' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '▢', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' '], ['|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '/', ' ', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|'], ['|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|'], ['|', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '/', '|'], ['|', ' ', '\\', ' ', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', ' ', '/', ' ', '|'], ['|', ' ', ' ', '\\', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', '/', ' ', ' ', '|'], ['|', ' ', ' ', ' ', '\\', ' ', '/', ' ', ' ', ' ', ' ', '/', '-', '\\', ' ', ' ', ' ', ' ', '\\', ' ', '/', ' ', ' ', ' ', '|'], [' ', '\\', ' ', ' ', ' ', '▢', ' ', ' ', ' ', ' ', ' ', '|', '▢', '|', ' ', ' ', ' ', ' ', ' ', '▢', ' ', ' ', ' ', '/', ' '], [' ', ' ', '\\', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', '\\', '-', '/', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', '/', ' ', ' '], [' ', ' ', ' ', '\\', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', '/', ' ', ' ', ' '], [' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', '\\', ' ', ' ', ' ', '/', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', '\\', ' ', '/', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', '▢', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', '/', '', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', '_', '_', '_', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']]
+    grid = [[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '_', '_', '_', '_', '_', '_', '_', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' '], [' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' '], [' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' '], [' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '◆', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' '], ['|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '/', ' ', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|'], ['|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|'], ['|', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '/', '|'], ['|', ' ', '\\', ' ', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', ' ', '/', ' ', '|'], ['|', ' ', ' ', '\\', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', '/', ' ', ' ', '|'], ['|', ' ', ' ', ' ', '\\', ' ', '/', ' ', ' ', ' ', ' ', '/', '-', '\\', ' ', ' ', ' ', ' ', '\\', ' ', '/', ' ', ' ', ' ', '|'], [' ', '\\', ' ', ' ', ' ', '◆', ' ', ' ', ' ', ' ', ' ', '|', '◆', '|', ' ', ' ', ' ', ' ', ' ', '◆', ' ', ' ', ' ', '/', ' '], [' ', ' ', '\\', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', '\\', '-', '/', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', '/', ' ', ' '], [' ', ' ', ' ', '\\', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', '/', ' ', ' ', ' '], [' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', '\\', ' ', ' ', ' ', '/', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', '\\', ' ', '/', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', '◆', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', ' ', ' ', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' ', '/', '', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\', '_', '_', '_', '/', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']]
 
     while(True): #infinite loop that plays the entire game
         if(inning == 9.5 and home_score > away_score): #end the game early if the home team is up going into the bottom of the 9th
@@ -133,17 +133,17 @@ def generate_game(home_team, away_team, debug=0):
         if(len(man_on_first) == 1):
             grid[15][19] = 'X' #replaces base on the grid with an X to indicate that a player is on first
         else:
-            grid[15][19] = '▢' #returns the plate icon to the grid
+            grid[15][19] = '◆' #returns the plate icon to the grid
         if(len(man_on_second) == 1):
             grid[8][12] = 'X' #replaces base on the grid with an X to indicate that a player is on second
         else:
-            grid[8][12] = '▢' #returns the plate icon to the grid
+            grid[8][12] = '◆' #returns the plate icon to the grid
         if(len(man_on_third) == 1):
             grid[15][5] = 'X' #replaces base on the grid with an X to indicate that a player is on third
         else:
-            grid[15][5] = '▢' #returns the plate icon to the grid
+            grid[15][5] = '◆' #returns the plate icon to the grid
 
-        time.sleep(2) #artificial pause
+        time.sleep(debug_time) #artificial pause
         system('cls') #Clears past print in cmd prompt
         grid_length = [len(str(num)) for x in grid for num in x] #takes each row in the grid
         width = max(grid_length) #gets the max width of the grid
@@ -194,6 +194,7 @@ def generate_game(home_team, away_team, debug=0):
             print("| {} |   {}{}   | OUTS:    ● ●   |    ▼    |".format(away_team[0][1], away_score_tens, away_score_ones))
         print("-=====-========-================-=========-") #nice boundary line
         
+        
         if(inning % 1 == 0): #checks to see if the inning is the top of the inning to know which team is offensive or defensive
             #a pitch is thrown, the hitting function is called, and the pitch count is increased for the home team.
             hit = hitting(away_team_offensive_lineup[away_team_current_batter], home_team_defensive_lineup[0], balls, strikes, home_pitches_thrown, inning)
@@ -204,19 +205,19 @@ def generate_game(home_team, away_team, debug=0):
                     choice = random.choice(home_RP) #chooses a random pitcher from the RP lineup
                     home_RP.remove(choice) #removes the choice from the list
                     print(">> {} replaces Pitcher {} with Pitcher {} <<".format(home_team[0][0], home_team_defensive_lineup[0][0], home_team[1][choice][0])) #announces the pitching substitution
-                    time.sleep(2)
+                    time.sleep(debug_time)
                     home_team_defensive_lineup[0] = home_team[1][choice] #substitutes the pitcher
                     home_pitches_thrown = 0 #resets the pitch count
                 elif(len(home_leftover_pitchers) > 0): #same code as above but if there isnt any relief pitchers available
                     choice = random.choice(home_leftover_pitchers)
                     home_leftover_pitchers.remove(choice)
                     print(">> {} replaces Pitcher {} with Pitcher {} <<".format(home_team[0][0], home_team_defensive_lineup[0][0], home_team[1][choice][0]))
-                    time.sleep(2)
+                    time.sleep(debug_time)
                     home_team_defensive_lineup[0] = home_team[1][choice]
                     home_pitches_thrown = 0
             elif((inning == 9 and strikes == 0 and balls == 0 and cp_replace_home == 0) or (inning == 8 and strikes == 0 and balls == 0 and outs >= 1 and cp_replace_home == 0)): #when to sub in the CP
                 print(">> {} replaces Pitcher {} with Pitcher {} <<".format(home_team[0][0], home_team_defensive_lineup[0][0], home_team[1][home_CP][0]))
-                time.sleep(2)
+                time.sleep(debug_time)
                 home_team_defensive_lineup[0] = home_team[1][home_CP]
                 cp_replace_home = 1
                 home_pitches_thrown = 0
@@ -229,19 +230,19 @@ def generate_game(home_team, away_team, debug=0):
                     choice = random.choice(away_RP)
                     away_RP.remove(choice)
                     print(">> {} replaces Pitcher {} with Pitcher {} <<".format(away_team[0][0], away_team_defensive_lineup[0][0], away_team[1][choice][0]))
-                    time.sleep(2)
+                    time.sleep(debug_time)
                     away_team_defensive_lineup[0] = away_team[1][choice]
                     away_pitches_thrown = 0
                 elif(len(away_leftover_pitchers) > 0):
                     choice = random.choice(away_leftover_pitchers)
                     away_leftover_pitchers.remove(choice)
                     print(">> {} replaces Pitcher {} with Pitcher {} <<".format(away_team[0][0], away_team_defensive_lineup[0][0], away_team[1][choice][0]))
-                    time.sleep(2)
+                    time.sleep(debug_time)
                     away_team_defensive_lineup[0] = away_team[1][choice]
                     away_pitches_thrown = 0
             elif((inning == 9 and strikes == 0 and balls == 0 and cp_replace_away == 0) or (inning == 8 and strikes == 0 and balls == 0 and outs >= 1 and cp_replace_away == 0)):
                 print(">> {} replaces Pitcher {} with Pitcher {} <<".format(away_team[0][0], away_team_defensive_lineup[0][0], away_team[1][away_CP][0]))
-                time.sleep(2)
+                time.sleep(debug_time)
                 away_team_offensive_lineup[0] = away_team[1][away_CP]
                 cp_replace_away = 1
                 away_pitches_thrown = 0
@@ -262,7 +263,7 @@ def generate_game(home_team, away_team, debug=0):
                     strikes = balls = 0 #clears counts
                 elif(hit_type == "Foul"):
                     if(position == "LF"): #ball is hit foul but is catchable by the left fielder
-                        LF_stats = home_team_defensive_lineup[6]
+                        LF_stats = home_team_defensive_lineup[6][5]
                         fielding_score_LF = (LF_stats[5] + ((time_in_air - 1.5) // 1.5)) * (99 / 100)
                         if(random.randint(1, 100) > fielding_score_LF): #error
                             if(strikes != 2):
@@ -270,7 +271,7 @@ def generate_game(home_team, away_team, debug=0):
                         else:
                             outs += 1
                     elif(position == "RF"): #ball is hit foul but is catchable by the right fielder
-                        RF_stats = home_team_defensive_lineup[8]
+                        RF_stats = home_team_defensive_lineup[8][5]
                         fielding_score_RF = (RF_stats[5] + ((time_in_air - 1.5) // 1.5)) * (99 / 100)
                         if(random.randint(1, 100) > fielding_score_RF): #error
                             if(strikes != 2):
@@ -285,6 +286,9 @@ def generate_game(home_team, away_team, debug=0):
                     #fielding output = [score_increase, men_on_bases, outs, message]
                     fielding_output = fielding(home_team_defensive_lineup, time_in_air, outs, [man_on_first, man_on_second, man_on_third], position, away_team_offensive_lineup[away_team_current_batter])
                     away_score += fielding_output[0]
+                    man_on_first.clear()
+                    man_on_second.clear()
+                    man_on_third.clear()
                     man_on_first = fielding_output[1][0]
                     man_on_second = fielding_output[1][1]
                     man_on_third = fielding_output[1][2]
@@ -299,7 +303,7 @@ def generate_game(home_team, away_team, debug=0):
                     strikes = balls = 0 #clears counts
                 elif(hit_type == "Foul"):
                     if(position == "LF"): #ball is hit foul but is catchable by the left fielder
-                        LF_stats = away_team_defensive_lineup[6]
+                        LF_stats = away_team_defensive_lineup[6][5]
                         fielding_score_LF = (LF_stats[5] + ((time_in_air - 1.5) // 1.5)) * (99 / 100)
                         if(random.randint(1, 100) > fielding_score_LF): #error
                             if(strikes != 2):
@@ -307,7 +311,7 @@ def generate_game(home_team, away_team, debug=0):
                         else:
                             outs += 1
                     elif(position == "RF"): #ball is hit foul but is catchable by the right fielder
-                        RF_stats = away_team_defensive_lineup[8]
+                        RF_stats = away_team_defensive_lineup[8][5]
                         fielding_score_RF = (RF_stats[5] + ((time_in_air - 1.5) // 1.5)) * (99 / 100)
                         if(random.randint(1, 100) > fielding_score_RF): #error
                             if(strikes != 2):
@@ -321,7 +325,10 @@ def generate_game(home_team, away_team, debug=0):
                     strikes = balls = 0
                     #fielding output = [score_increase, men_on_bases, outs, message]
                     fielding_output = fielding(away_team_defensive_lineup, time_in_air, outs, [man_on_first, man_on_second, man_on_third], position, home_team_offensive_lineup[home_team_current_batter])
-                    away_score += fielding_output[0]
+                    home_score += fielding_output[0]
+                    man_on_first.clear()
+                    man_on_second.clear()
+                    man_on_third.clear()
                     man_on_first = fielding_output[1][0]
                     man_on_second = fielding_output[1][1]
                     man_on_third = fielding_output[1][2]
@@ -379,6 +386,7 @@ def generate_game(home_team, away_team, debug=0):
             man_on_first.clear()
             man_on_second.clear()
             man_on_third.clear()
+
     system('cls')
     print("FINAL SCORE:")
     print("{} - {}".format(home_team[0][0], home_score))

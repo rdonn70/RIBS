@@ -187,7 +187,7 @@ def fielding(defense_lineup, time_in_air, outs, men_on_bases, position, current_
                     return([0, [[], [], []], 3])
         elif(position == "3B"):
             if(state == [0, 0, 0]):
-                if(throw(stats_dict["B"], stats_dict["3B"], stats_dict["1B"], 10) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["3B"], stats_dict["1B"]) == 0): #throws to first
                     return([0, [[current_batter], [], []], 2])
                 else:
                     return([0, [[], [], []], 3])
@@ -197,14 +197,14 @@ def fielding(defense_lineup, time_in_air, outs, men_on_bases, position, current_
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [0, 1, 0]):
-                if(throw(stats_dict["B"], stats_dict["3B"], stats_dict["1B"], 10) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["3B"], stats_dict["1B"]) == 0): #throws to first
                     return([0, [[current_batter], [], [men_on_bases[1]]], 2])
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [0, 1, 1]):
                 return([0, [[], [], []], 3]) #tag third
             elif(state == [1, 0, 0]):
-                if(throw(stats_dict["B"], stats_dict["3B"], stats_dict["1B"], 10) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["3B"], stats_dict["1B"]) == 0): #throws to first
                     return([1, [[current_batter], [], []], 2])
                 else:
                     return([0, [[], [], []], 3])
@@ -214,7 +214,7 @@ def fielding(defense_lineup, time_in_air, outs, men_on_bases, position, current_
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [1, 1, 0]):
-                if(throw(stats_dict["B"], stats_dict["3B"], stats_dict["1B"], 10) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["3B"], stats_dict["1B"]) == 0): #throws to first
                     return([1, [[current_batter], [], [men_on_bases[1]]], 2])
                 else:
                     return([0, [[], [], []], 3])
@@ -222,42 +222,42 @@ def fielding(defense_lineup, time_in_air, outs, men_on_bases, position, current_
                 return([0, [[], [], []], 3]) #tag third
         elif(position == "SS"):
             if(state == [0, 0, 0]):
-                if(throw(stats_dict["B"], stats_dict["SS"], stats_dict["1B"], 5) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["SS"], stats_dict["1B"]) == 0): #throws to first
                     return([0, [[current_batter], [], []], 2])
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [0, 0, 1]):
-                if(throw(stats_dict["1"], stats_dict["SS"], stats_dict["2B"], (-10)) == 0): #throws to second
+                if(throw(stats_dict["1"], stats_dict["SS"], stats_dict["2B"]) == 0): #throws to second
                     return([0, [[current_batter], [men_on_bases[0]], []], 2])
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [0, 1, 0]):
-                if(throw(stats_dict["B"], stats_dict["SS"], stats_dict["1B"], 5) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["SS"], stats_dict["1B"]) == 0): #throws to first
                     return([0, [[current_batter], [], [men_on_bases[1]]], 2])
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [0, 1, 1]):
-                if(throw(stats_dict["1"], stats_dict["SS"], stats_dict["2B"], (-10)) == 0): #throws to second
+                if(throw(stats_dict["1"], stats_dict["SS"], stats_dict["2B"]) == 0): #throws to second
                     return([0, [[current_batter], [men_on_bases[0]], [men_on_bases[1]]], 2])
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [1, 0, 0]):
-                if(throw(stats_dict["B"], stats_dict["SS"], stats_dict["1B"], 5) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["SS"], stats_dict["1B"]) == 0): #throws to first
                     return([1, [[current_batter], [], []], 2])
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [1, 0, 1]):
-                if(throw(stats_dict["1"], stats_dict["SS"], stats_dict["2B"], (-10)) == 0): #throws to second
+                if(throw(stats_dict["1"], stats_dict["SS"], stats_dict["2B"]) == 0): #throws to second
                     return([1, [[current_batter], [men_on_bases[0]], []], 2])
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [1, 1, 0]):
-                if(throw(stats_dict["B"], stats_dict["SS"], stats_dict["1B"], 5) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["SS"], stats_dict["1B"]) == 0): #throws to first
                     return([1, [[current_batter], [], [men_on_bases[1]]], 2])
                 else:
                     return([0, [[], [], []], 3])
             else:
-                if(throw(stats_dict["1"], stats_dict["SS"], stats_dict["2B"], (-10)) == 0): #throws to second
+                if(throw(stats_dict["1"], stats_dict["SS"], stats_dict["2B"]) == 0): #throws to second
                     return([1, [[current_batter], [men_on_bases[0]], [men_on_bases[1]]], 2])
                 else:
                     return([0, [[], [], []], 3])
@@ -265,113 +265,113 @@ def fielding(defense_lineup, time_in_air, outs, men_on_bases, position, current_
             if(state == [0, 0, 0]):
                 return([0, [[current_batter], [], []], 2]) #throw to cutoff, batter advances to first
             elif(state == [0, 0, 1]):
-                if(throw(stats_dict["1"], stats_dict["LF"], stats_dict["2B"], 20) == 0): #throws to second
+                if(throw(stats_dict["1"], stats_dict["LF"], stats_dict["2B"]) == 0): #throws to second
                     return([0, [[current_batter], [men_on_bases[0]], []], 2])
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [0, 1, 0]):
                 return([0, [[current_batter], [], [men_on_bases[1]]], 2]) #throw to cutoff, batter advances, second advances
             elif(state == [0, 1, 1]):
-                if(throw(stats_dict["2"], stats_dict["LF"], stats_dict["3B"], 15) == 0): #throws to third
+                if(throw(stats_dict["2"], stats_dict["LF"], stats_dict["3B"]) == 0): #throws to third
                     return([0, [[current_batter], [men_on_bases[0]], [men_on_bases[1]]], 2])
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [1, 0, 0]):
                 return([1, [[current_batter], [], []], 2]) #throw to cutoff, batter advances, third scores
             elif(state == [1, 0, 1]):
-                if(throw(stats_dict["1"], stats_dict["LF"], stats_dict["2B"], 20) == 0): #throws to second
+                if(throw(stats_dict["1"], stats_dict["LF"], stats_dict["2B"]) == 0): #throws to second
                     return([1, [[current_batter], [men_on_bases[0]], []], 2])
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [1, 1, 0]):
-                if(throw(stats_dict["2"], stats_dict["LF"], stats_dict["3B"], 15) == 0): #throws to third
+                if(throw(stats_dict["2"], stats_dict["LF"], stats_dict["3B"]) == 0): #throws to third
                     return([1, [[current_batter], [], [men_on_bases[1]]], 2])
                 else:
                     return([0, [[], [], []], 3])
             else:
-                if(throw(stats_dict["2"], stats_dict["LF"], stats_dict["3B"], 15) == 0): #throws to third
+                if(throw(stats_dict["2"], stats_dict["LF"], stats_dict["3B"]) == 0): #throws to third
                     return([1, [[current_batter], [men_on_bases[0]], [men_on_bases[1]]], 2])
                 else:
                     return([0, [[], [], []], 3])
         elif(position == "CF"):
             if(state == [0, 0, 0]):
-                if(throw(stats_dict["B"], stats_dict["CF"], stats_dict["1B"], 20) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["CF"], stats_dict["1B"]) == 0): #throws to first
                     return([0, [[current_batter], [], []], 2])
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [0, 0, 1]):
-                if(throw(stats_dict["1"], stats_dict["CF"], stats_dict["2B"], 15) == 0): #throws to second
+                if(throw(stats_dict["1"], stats_dict["CF"], stats_dict["2B"]) == 0): #throws to second
                     return([0, [[current_batter], [men_on_bases[0]], []], 2])
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [0, 1, 0]):
-                if(throw(stats_dict["B"], stats_dict["CF"], stats_dict["1B"], 20) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["CF"], stats_dict["1B"]) == 0): #throws to first
                     return([0, [[current_batter], [], [men_on_bases[1]]], 2])
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [0, 1, 1]):
-                if(throw(stats_dict["1"], stats_dict["CF"], stats_dict["2B"], 15) == 0): #throws to second
+                if(throw(stats_dict["1"], stats_dict["CF"], stats_dict["2B"]) == 0): #throws to second
                     return([0, [[current_batter], [men_on_bases[0]], [men_on_bases[1]]], 2])
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [1, 0, 0]):
-                if(throw(stats_dict["B"], stats_dict["CF"], stats_dict["1B"], 20) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["CF"], stats_dict["1B"]) == 0): #throws to first
                     return([1, [[current_batter], [], []], 2])
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [1, 0, 1]):
-                if(throw(stats_dict["1"], stats_dict["CF"], stats_dict["2B"], 15) == 0): #throws to second
+                if(throw(stats_dict["1"], stats_dict["CF"], stats_dict["2B"]) == 0): #throws to second
                     return([1, [[current_batter], [men_on_bases[0]], []], 2])
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [1, 1, 0]):
-                if(throw(stats_dict["B"], stats_dict["CF"], stats_dict["1B"], 20) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["CF"], stats_dict["1B"]) == 0): #throws to first
                     return([1, [[current_batter], [], [men_on_bases[1]]], 2])
                 else:
                     return([0, [[], [], []], 3])
             else:
-                if(throw(stats_dict["1"], stats_dict["CF"], stats_dict["2B"], 15) == 0): #throws to second
+                if(throw(stats_dict["1"], stats_dict["CF"], stats_dict["2B"]) == 0): #throws to second
                     return([1, [[current_batter], [men_on_bases[0]], [men_on_bases[1]]], 2])
                 else:
                     return([0, [[], [], []], 3])
         elif(position == "RF"):
             if(state == [0, 0, 0]):
-                if(throw(stats_dict["B"], stats_dict["RF"], stats_dict["1B"], 15) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["RF"], stats_dict["1B"]) == 0): #throws to first
                     return([0, [[current_batter], [], []], 2])
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [0, 0, 1]):
-                if(throw(stats_dict["B"], stats_dict["RF"], stats_dict["1B"], 15) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["RF"], stats_dict["1B"]) == 0): #throws to first
                     return([0, [[current_batter], [men_on_bases[0]], []], 2])
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [0, 1, 0]):
-                if(throw(stats_dict["B"], stats_dict["RF"], stats_dict["1B"], 15) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["RF"], stats_dict["1B"]) == 0): #throws to first
                     return([0, [[current_batter], [], [men_on_bases[1]]], 2])
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [0, 1, 1]):
-                if(throw(stats_dict["B"], stats_dict["RF"], stats_dict["1B"], 15) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["RF"], stats_dict["1B"]) == 0): #throws to first
                     return([0, [[current_batter], [men_on_bases[0]], [men_on_bases[1]]], 2])
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [1, 0, 0]):
-                if(throw(stats_dict["B"], stats_dict["RF"], stats_dict["1B"], 15) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["RF"], stats_dict["1B"]) == 0): #throws to first
                     return([1, [[current_batter], [], []], 2])
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [1, 0, 1]):
-                if(throw(stats_dict["B"], stats_dict["RF"], stats_dict["1B"], 15) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["RF"], stats_dict["1B"]) == 0): #throws to first
                     return([1, [[current_batter], [men_on_bases[0]], []], 2])
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [1, 1, 0]):
-                if(throw(stats_dict["B"], stats_dict["RF"], stats_dict["1B"], 15) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["RF"], stats_dict["1B"]) == 0): #throws to first
                     return([1, [[current_batter], [], [men_on_bases[1]]], 2])
                 else:
                     return([0, [[], [], []], 3])
             else:
-                if(throw(stats_dict["B"], stats_dict["RF"], stats_dict["1B"], 15) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["RF"], stats_dict["1B"]) == 0): #throws to first
                     return([1, [[current_batter], [men_on_bases[0]], [men_on_bases[1]]], 2])
                 else:
                     return([0, [[], [], []], 3])
@@ -384,7 +384,7 @@ def fielding(defense_lineup, time_in_air, outs, men_on_bases, position, current_
                     return([0, [[], [], []], 2])
             elif(state == [0, 0, 1]):
                 if(throw(stats_dict["1"], stats_dict["P"], stats_dict["2B"]) == 0): #throws to second
-                    if(throw(stats_dict["B"], stats_dict["2B"], stats_dict["1B"], 10) == 0): #throws to first
+                    if(throw(stats_dict["B"], stats_dict["2B"], stats_dict["1B"]) == 0): #throws to first
                         return([0, [[current_batter], [men_on_bases[0]], []], 1])
                     else:
                         return([0, [[], [men_on_bases[0]], []], 2])
@@ -570,7 +570,7 @@ def fielding(defense_lineup, time_in_air, outs, men_on_bases, position, current_
                     return([0, [[], [], []], 3])
         elif(position == "3B"):
             if(state == [0, 0, 0]):
-                if(throw(stats_dict["B"], stats_dict["3B"], stats_dict["1B"], 10) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["3B"], stats_dict["1B"]) == 0): #throws to first
                     return([0, [[current_batter], [], []], 1])
                 else:
                     return([0, [[], [], []], 2])
@@ -586,7 +586,7 @@ def fielding(defense_lineup, time_in_air, outs, men_on_bases, position, current_
                     else:
                         return([0, [[], [], []], 3])
             elif(state == [0, 1, 0]):
-                if(throw(stats_dict["B"], stats_dict["3B"], stats_dict["1B"], 10) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["3B"], stats_dict["1B"]) == 0): #throws to first
                     return([0, [[current_batter], [], [men_on_bases[1]]], 1])
                 else:
                     return([0, [[], [], [men_on_bases[1]]], 2])
@@ -598,7 +598,7 @@ def fielding(defense_lineup, time_in_air, outs, men_on_bases, position, current_
                 else:
                     return([0, [[], [], []], 3])
             elif(state == [1, 0, 0]):
-                if(throw(stats_dict["B"], stats_dict["3B"], stats_dict["1B"], 10) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["3B"], stats_dict["1B"]) == 0): #throws to first
                     return([0, [[current_batter], [], [men_on_bases[2]]], 1])
                 else:
                     return([0, [[], [], [men_on_bases[2]]], 2])
@@ -614,7 +614,7 @@ def fielding(defense_lineup, time_in_air, outs, men_on_bases, position, current_
                     else:
                         return([0, [[], [], []], 3])
             elif(state == [1, 1, 0]):
-                if(throw(stats_dict["B"], stats_dict["3B"], stats_dict["1B"], 10) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["3B"], stats_dict["1B"]) == 0): #throws to first
                     return([0, [[current_batter], [men_on_bases[1]], [men_on_bases[2]]], 1])
                 else:
                     return([0, [[], [men_on_bases[1]], [men_on_bases[2]]], 2])
@@ -627,12 +627,12 @@ def fielding(defense_lineup, time_in_air, outs, men_on_bases, position, current_
                     return([0, [[], [], []], 3])
         elif(position == "SS"):
             if(state == [0, 0, 0]):
-                if(throw(stats_dict["B"], stats_dict["SS"], stats_dict["1B"], 5) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["SS"], stats_dict["1B"]) == 0): #throws to first
                     return([0, [[current_batter], [], []], 1])
                 else:
                     return([0, [[], [], []], 2])
             elif(state == [0, 0, 1]):
-                if(throw(stats_dict["1"], stats_dict["SS"], stats_dict["2B"], (-10)) == 0): #throws to second
+                if(throw(stats_dict["1"], stats_dict["SS"], stats_dict["2B"]) == 0): #throws to second
                     if(throw(stats_dict["B"], stats_dict["2B"], stats_dict["1B"]) == 0): #throws to first
                         return([0, [[current_batter], [men_on_bases[0]], []], 1])
                     else:
@@ -643,14 +643,14 @@ def fielding(defense_lineup, time_in_air, outs, men_on_bases, position, current_
                     else:
                         return([0, [[], [], []], 3])
             elif(state == [0, 1, 0]):
-                if(throw(stats_dict["B"], stats_dict["SS"], stats_dict["1B"], 5) == 0): #throws to first
+                if(throw(stats_dict["B"], stats_dict["SS"], stats_dict["1B"]) == 0): #throws to first
                     return([0, [[current_batter], [], [men_on_bases[1]]], 1])
                 else:
                     return([0, [[], [], [men_on_bases[1]]], 2])
             elif(state == [0, 1, 1]):
                 if(time_in_air >= 3):
                     return([0, men_on_bases, (outs+1)]) #infield fly rule
-                elif(throw(stats_dict["1"], stats_dict["SS"], stats_dict["2B"], (-10)) == 0): #throws to second
+                elif(throw(stats_dict["1"], stats_dict["SS"], stats_dict["2B"]) == 0): #throws to second
                     if(throw(stats_dict["B"], stats_dict["2B"], stats_dict["1B"]) == 0): #throws to first
                         return([0, [[current_batter], [men_on_bases[0]], [men_on_bases[1]]], 1])
                     else:
@@ -666,7 +666,7 @@ def fielding(defense_lineup, time_in_air, outs, men_on_bases, position, current_
                 else:
                     return([0, [[current_batter], [], []], 2])
             elif(state == [1, 0, 1]):
-                if(throw(stats_dict["1"], stats_dict["SS"], stats_dict["2B"], (-10)) == 0): #throws to second
+                if(throw(stats_dict["1"], stats_dict["SS"], stats_dict["2B"]) == 0): #throws to second
                     if(throw(stats_dict["B"], stats_dict["2B"], stats_dict["1B"]) == 0): #throws to first
                         return([1, [[current_batter], [men_on_bases[0]], []], 1])
                     else:
@@ -684,7 +684,7 @@ def fielding(defense_lineup, time_in_air, outs, men_on_bases, position, current_
             else:
                 if(time_in_air >= 3):
                     return([0, men_on_bases, (outs+1)]) #infield fly rule
-                elif(throw(stats_dict["1"], stats_dict["SS"], stats_dict["2B"], (-10)) == 0): #throws to second
+                elif(throw(stats_dict["1"], stats_dict["SS"], stats_dict["2B"]) == 0): #throws to second
                     if(throw(stats_dict["B"], stats_dict["2B"], stats_dict["1B"]) == 0): #throws to first
                         return([1, [[current_batter], [men_on_bases[0]], [men_on_bases[1]]], 1])
                     else:

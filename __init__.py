@@ -25,6 +25,16 @@ def getkey():
 def scrimmage(debug=0):
     if(debug == 1):
         print("DEBUG MODE ENABLED")
+        debug_time = -1
+        while(debug_time == -1):
+            try:
+                debug_time = abs(int(input("Enter a number for delay (Recommended = 2): ")))
+            except:
+                print("ERROR: Please Enter a Valid Delay")
+                time.sleep(2)
+            system('cls')
+        
+    system('cls')
     print("Generating Leagues...")
     time.sleep(1)
     leagues = league_generator(current_year)
@@ -35,7 +45,7 @@ def scrimmage(debug=0):
     print("Starting Game - {} at {}".format(away_team[0][0], home_team[0][0]))
     print("")
     time.sleep(3)
-    generate_game(home_team, away_team, debug)
+    generate_game(home_team, away_team, debug, debug_time)
     return
 
 def season(): #WIP
